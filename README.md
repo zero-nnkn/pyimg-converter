@@ -11,6 +11,10 @@ pip install -r requirements.txt
 ```py
 from src.pyimg_converter import convert_from_path
 
-input = 'sample.pdf'
-images = convert_from_path(input) # list[PIL.Image]
+input_path = 'sample.pdf'
+images = convert_from_path(input_path) # return a list[PIL.Image]
+
+# If you want to save to a PNG file:
+output_path = 'sample.png'
+images = convert_from_path(input_path, output_path)
 ```
