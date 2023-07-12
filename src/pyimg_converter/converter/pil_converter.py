@@ -1,6 +1,9 @@
 from PIL import Image
+from pillow_heif import register_heif_opener
 
 from .base_converter import BaseConverter
+
+register_heif_opener()
 
 
 class PILConverter(BaseConverter):

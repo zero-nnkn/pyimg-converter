@@ -1,10 +1,9 @@
 from .pdf2images import Pdf2ImgsConverter
-from .heic2image import Heic2ImgConverter
 from .pil_converter import PILConverter
 
 SUPPORTED_CONVERTER = {
     'pdf': Pdf2ImgsConverter,
-    'heic': Heic2ImgConverter,
+    'heic': PILConverter,
     'tiff': PILConverter,
     'png': PILConverter,
     'jpg': PILConverter,
