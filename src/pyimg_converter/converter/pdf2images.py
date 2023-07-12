@@ -1,8 +1,12 @@
+from __future__ import annotations
+
 import pypdfium2 as pdfium
 
 from .base_converter import BaseConverter
 
 
+# The `Pdf2ImgsConverter` class is a subclass of `BaseConverter` that converts a PDF file into a list
+# of images using the `pdfium` library.
 class Pdf2ImgsConverter(BaseConverter):
     def convert_from_path(self, input_path: str):
         pdf = pdfium.PdfDocument(input_path)

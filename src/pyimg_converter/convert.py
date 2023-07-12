@@ -1,8 +1,23 @@
+from __future__ import annotations
+
 from pathlib import Path
+
 from .converter import get_converter
 
 
 def convert_from_path(input_path: str, output_path: str = None):
+    """
+    Converts a file to PNG format to a list of images.
+    Saves it to the specified output if output path is provided.
+
+    Args:
+      input_path (str): path of input file
+      output_path (str): specifies the path where the converted image(s) will be saved.
+    If `output_path` is not provided, the converted image(s) will not be saved to a file.
+
+    Returns:
+      A list of images.
+    """
     input_path = Path(input_path)
     assert input_path.exists(), f'Input path does not exist: {input_path}'
     assert input_path.is_file(), f'Input path is not a file: {input_path}'
