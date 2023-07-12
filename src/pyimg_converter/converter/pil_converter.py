@@ -8,4 +8,4 @@ register_heif_opener()
 
 class PILConverter(BaseConverter):
     def convert_from_path(self, input_path: str):
-        return Image.open(input_path)
+        return [Image.open(input_path)]
