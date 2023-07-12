@@ -5,4 +5,6 @@
 """Python Package Template"""
 from __future__ import annotations
 
+from .convert import convert_from_path
+
 __version__ = "0.0.1"
