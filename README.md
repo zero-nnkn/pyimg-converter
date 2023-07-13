@@ -3,8 +3,9 @@
 Convert file (`*.heic`, `*.tiff`, `*.jpg`, `*.pdf`) to images (`*.png`).
 
 ## Installation
-```
-pip install -r requirements.txt
+This command will help build a distributed wheel
+```bash
+$ python -m build
 ```
 
 ## Usage
