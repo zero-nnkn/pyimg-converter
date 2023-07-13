@@ -4,6 +4,7 @@ from pathlib import Path
 
 from .converter import get_converter
 
+SUPPORTED_OUTPUT_FORMATS = tuple('png',)
 
 def convert_from_path(input_path: str, output_path: str = None):
     """
@@ -19,15 +20,18 @@ def convert_from_path(input_path: str, output_path: str = None):
       A list of images.
     """
     input_path = Path(input_path)
-    assert input_path.exists(), f'Input path does not exist: {input_path}'
-    assert input_path.is_file(), f'Input path is not a file: {input_path}'
+    if not input_path.exists():
+        raise FileNotFoundError(f'Input path does not exist: {input_path}.')
+    if not input_path.is_file():
+        raise IsADirectoryError(f'Input path is not a file: {input_path}.')
 
     file_type = input_path.suffix[1:].lower()
     converter = get_converter(file_type)
     images = converter.convert_from_path(input_path)
 
     if output_path is not None:
-        assert output_path[-4:].lower() == '.png', 'Output path must be in *.png format'
+        if Path(output_path).suffix[1:].lower() != '.png':
+            raise ValueError(f'Output path must be in {SUPPORTED_OUTPUT_FORMATS} format.')
 
         if len(images) == 1:
             images[0].save(output_path)
