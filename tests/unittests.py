@@ -1,20 +1,13 @@
 from __future__ import annotations
 
-import os
-import sys
 import unittest
 from pathlib import Path
 
 import PIL
 
+from pyimg_converter import convert_from_path
+
 FILE = Path(__file__).resolve()
-ROOT = FILE.parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))
-ROOT = Path(os.path.relpath(ROOT, Path.cwd()))
-
-from src.pyimg_converter import convert_from_path
-
 SAMPLE_PATH = FILE.parent / 'samples'
 
 
